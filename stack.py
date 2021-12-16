@@ -1,22 +1,21 @@
-from typing import List
 
 class Stack:
     def __init__(self):
         self.contents = []
 
-    def push(self, item: Object):
+    def push(self, item: object):
         self.contents.append(item)
 
-    def pop(self) -> Object:
+    def pop(self) -> object:
         return self.contents.pop()
 
     def __len__(self) -> int:
         return len(self.contents)
 
     def __str__(self) -> str:
-        return self.contents
+        return str(self.contents)
     
-    def __repr__(self) -> List:
+    def __repr__(self) -> str:
         return repr(self.contents)
     
     def copy(self):
@@ -27,13 +26,12 @@ class Stack:
 
 
 if __name__ == '__main__':
-    testStak = stack()
-    testStak.push(0)
-    testStak.push('test')
-    testStak.push()
-    
-    secondStack = testStak.copy()
-    
-    print(testStak)
-    print(len(testStak))
-
+    testingStack = Stack()
+    testingStack.push('item')
+    print(testingStack)
+    testingStack.push('item2')
+    print(testingStack)
+    stack2 = testingStack.copy()
+    testingStack.pop()
+    print(testingStack)
+    print(stack2)
