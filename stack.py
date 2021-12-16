@@ -1,25 +1,25 @@
-class stack():
+from typing import List
+
+class Stack:
     def __init__(self):
         self.contents = []
 
-    def push(self, item):
-        print('weird {0}'.format(item))
-        if item is not None:
-            self.contents.insert(0, item)
-        else:
-            return 'Cant push empty item'
+    def push(self, item: Object):
+        self.contents.append(item)
 
-    def remove(self):
-        return self.contents.pop(0)
+    def pop(self) -> Object:
+        return self.contents.pop()
 
-    def size(self):
-        return self.contents.count()
+    def __len__(self) -> int:
+        return len(self.contents)
 
-    # return the top item of the stack
-    def peak(self):
-        return self.contents[0]
-
-    def list_Items(self):
+    def __str__(self) -> str:
+        return self.contents
+    
+    def __repr__(self) -> List:
+        return repr(self.contents)
+    
+    def copy(self):
         return self.contents.copy()
 
     def empty(self):
@@ -31,5 +31,9 @@ if __name__ == '__main__':
     testStak.push(0)
     testStak.push('test')
     testStak.push()
-    print(testStak.list_Items())
+    
+    secondStack = testStak.copy()
+    
+    print(testStak)
+    print(len(testStak))
 
